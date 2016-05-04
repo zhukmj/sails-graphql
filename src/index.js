@@ -1,0 +1,3 @@
+export {
+	generateSchema,
+} from './generateSchema';
