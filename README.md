@@ -9,33 +9,33 @@ Assume you have two models: Author and Article
  * api/models/Author.js
  */
 module.exports = {
-	attributes: {
-		name: {
-			type: 'string'
-		},
-		articles: {
-			collection: 'article',
-			via: 'author'
-		}
-	}
+  attributes: {
+    name: {
+      type: 'string'
+    },
+    articles: {
+      collection: 'article',
+      via: 'author'
+    }
+  }
 };
 
 /**
  * api/models/Article.js
  */
 module.exports = {
-	attributes: {
-		name: {
-			type: 'string'
-		},
-		slug: {
-			type: 'string',
-			unique: true
-		},
-		author: {
-			model: 'author'
-		}
-	}
+  attributes: {
+    name: {
+      type: 'string'
+    },
+    slug: {
+      type: 'string',
+      unique: true
+    },
+    author: {
+      model: 'author'
+    }
+  }
 };
 ```
 
@@ -172,7 +172,8 @@ module.exports = {
 };
 
 ```
-3. Try to send some query to `POST /graphql`. That's it!
+Try to `POST` some query to `/graphql`. That's it!
+
 
 ## License
 The MIT License (MIT)
