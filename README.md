@@ -2,6 +2,10 @@
 This module will help you to create GraphQL schema of each model in your Sails application.
 It uses Waterline configuration files for creating GraphQL objects and `sails.request()` method for performing internal requests and resolving queries/mutations.
 
+```
+npm install sails-graphql --save
+```
+
 ## Quick example
 Assume you have two models: Author and Article
 ```javascript
@@ -137,7 +141,8 @@ console.log(printSchema(schema));
 
 ## Usage
 1. Make sure you have `sails` and `graphql` installed
-2. Create a GraphQLController
+2. Run `npm install sails-graphql --save`
+3. Create a GraphQLController
 ```javascript
 /**
  * api/controllers/GraphQLController.js
