@@ -26,7 +26,7 @@ function createSingleQuery(model) {
 		name: queryTypeName,
 		args,
 		type: objectTypes[typeName],
-		resolve: resolveGetSingle
+		resolve: resolveGetSingle(model)
 	};
 
 }
@@ -48,7 +48,7 @@ function createRangeQuery(model) {
 		name: queryPluralTypeName,
 		type: getConnectionType(connectionTypeName, objectTypes[typeName]),
 		args: connectionArgs,
-		resolve: resolveGetRange
+		resolve: resolveGetRange(model)
 	};
 
 }

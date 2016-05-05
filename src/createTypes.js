@@ -30,6 +30,7 @@ let models;
 function getObjectFields(modelObject, isInputType = false) {
 
 	const { _attributes: attributes } = modelObject;
+	const { queryName } = getName(modelObject);
 
 	// Go through all fields and return object of
 	// converted sails types to GraphQL types
@@ -40,6 +41,7 @@ function getObjectFields(modelObject, isInputType = false) {
 		// Field type must be either `type`, `collection` or `model`
 		const attrType = type || collection || model;
 		let fieldTypeName;
+		let childModel;
 
 		// Check whether fieldType was provided
 		if (!attrType) {
@@ -51,7 +53,7 @@ function getObjectFields(modelObject, isInputType = false) {
 		}
 
 		if (model || collection) {
-			const childModel = models[attrType.toLowerCase()];
+			childModel = models[attrType.toLowerCase()];
 			fieldTypeName = isInputType ?
 				getName(childModel).inputTypeName :
 				getName(childModel).typeName;
@@ -88,7 +90,8 @@ function getObjectFields(modelObject, isInputType = false) {
 		fields[fieldName] = {
 			type: getConnectionType(fieldConnectionTypeName, fieldType),
 			args: connectionArgs,
-			resolve: resolveGetRange
+			// Getting the field's model
+			resolve: resolveGetRange(childModel, queryName)
 		};
 
 		return fields;

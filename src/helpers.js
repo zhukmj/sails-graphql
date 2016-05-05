@@ -93,11 +93,11 @@ export function getName(model, fieldKey = '') {
 		queryPluralName: `${pluralize(modelName)}`,
 		queryTypeName: `${modelTypeName}Query`,
 		queryPluralTypeName: `${modelTypeName}RangeQuery`,
-		mutationCreateName: `create${modelTypeName}Mutation`,
+		mutationCreateName: `create${modelTypeName}`,
 		mutationCreateTypeName: `Create${modelTypeName}Mutation`,
-		mutationDeleteName: `delete${modelTypeName}Mutation`,
+		mutationDeleteName: `delete${modelTypeName}`,
 		mutationDeleteTypeName: `Delete${modelTypeName}Mutation`,
-		mutationUpdateName: `update${modelTypeName}Mutation`,
+		mutationUpdateName: `update${modelTypeName}`,
 		mutationUpdateTypeName: `Update${modelTypeName}Mutation`
 	};
 }

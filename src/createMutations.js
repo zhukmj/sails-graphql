@@ -38,7 +38,7 @@ function createCreateMutation(model) {
 				type: new GraphQLNonNull(objectTypes[inputTypeName])
 			}
 		},
-		resolve: resolveCreate
+		resolve: resolveCreate(model)
 	};
 
 }
@@ -63,7 +63,7 @@ function createDeleteMutation(model) {
 				type: new GraphQLNonNull(dataTypes[model._attributes.id.type])
 			}
 		},
-		resolve: resolveDelete
+		resolve: resolveDelete(model)
 	};
 
 }
@@ -87,13 +87,13 @@ function createUpdateMutation(model) {
 		type: objectTypes[typeName],
 		args: {
 			id: {
-				type: new GraphQLNonNull(dataTypes[model._attributes.id.type]),
-				[queryName]: {
-					type: new GraphQLNonNull(objectTypes[inputTypeName])
-				}
+				type: new GraphQLNonNull(dataTypes[model._attributes.id.type])
+			},
+			[queryName]: {
+				type: new GraphQLNonNull(objectTypes[inputTypeName])
 			}
 		},
-		resolve: resolveUpdate
+		resolve: resolveUpdate(model)
 	};
 
 }
