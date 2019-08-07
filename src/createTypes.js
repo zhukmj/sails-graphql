@@ -29,7 +29,7 @@ let models;
  */
 function getObjectFields(modelObject, isInputType = false) {
 
-	const { _attributes: attributes } = modelObject;
+	const { attributes } = modelObject;
 	const { queryName } = getName(modelObject);
 
 	// Go through all fields and return object of

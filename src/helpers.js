@@ -14,7 +14,9 @@ import {
 export const dataTypes = {
 	string: GraphQLString,
 	text: GraphQLString,
+	json: GraphQLString, // Alias for text
 	integer: GraphQLInt,
+	number: GraphQLInt, // Alias for integer
 	float: GraphQLFloat,
 	date: GraphQLString,
 	datetime: GraphQLString,
@@ -90,7 +92,7 @@ export function getName(model, fieldKey = '') {
 		fieldConnectionTypeName: `${modelTypeName}${fieldName}ConnectionType`,
 		fieldUnionTypeName: `${modelTypeName}${fieldName}UnionType`,
 		queryName: `${modelName}`,
-		queryPluralName: `${pluralize(modelName)}`,
+		queryPluralName: `all${pluralize(modelTypeName)}`,
 		queryTypeName: `${modelTypeName}Query`,
 		queryPluralTypeName: `${modelTypeName}RangeQuery`,
 		mutationCreateName: `create${modelTypeName}`,

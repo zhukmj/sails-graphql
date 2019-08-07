@@ -60,7 +60,7 @@ function createDeleteMutation(model) {
 		type: objectTypes[typeName],
 		args: {
 			id: {
-				type: new GraphQLNonNull(dataTypes[model._attributes.id.type])
+				type: new GraphQLNonNull(dataTypes[model.attributes.id.type])
 			}
 		},
 		resolve: resolveDelete(model)
@@ -87,7 +87,7 @@ function createUpdateMutation(model) {
 		type: objectTypes[typeName],
 		args: {
 			id: {
-				type: new GraphQLNonNull(dataTypes[model._attributes.id.type])
+				type: new GraphQLNonNull(dataTypes[model.attributes.id.type])
 			},
 			[queryName]: {
 				type: new GraphQLNonNull(objectTypes[inputTypeName])

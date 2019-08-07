@@ -20,7 +20,7 @@ let objectTypes;
 function createSingleQuery(model) {
 
 	const { queryName, queryTypeName, typeName } = getName(model);
-	const args = getSingleQueryArgs(model._attributes);
+	const args = getSingleQueryArgs(model.attributes);
 
 	queries[queryName] = {
 		name: queryTypeName,
